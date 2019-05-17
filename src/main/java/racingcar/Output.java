@@ -16,7 +16,20 @@ class Output {
         System.out.println(message);
     }
 
-    static void finalWinner(RacingGameResult result) {
+    static void carsStat(final Cars cars) {
+        print(getCarsStatString(cars));
+    }
+
+    private static String getCarsStatString(final Cars carList) {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : carList) {
+            sb.append(car.toString());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
+    static void finalWinner(Cars result) {
         List<String> winList = new ArrayList<>();
 
         for (Car car : result.getWinners()) {

@@ -28,7 +28,7 @@ class CarsTest {
     }
 
     @Test
-    void 최대전진값() {
+    void 승리자판명() {
         car1.moveForward();
 
         car2.moveForward();
@@ -38,6 +38,9 @@ class CarsTest {
         car3.moveForward();
         car3.moveForward();
 
-        assertThat(cars.getMaxAdvancedCar()).isEqualTo(car3);
+        assertThat(cars.getWinners()).containsOnly(car3);
+
+        car2.moveForward();
+        assertThat(cars.getWinners()).containsOnly(car2, car3);
     }
 }
